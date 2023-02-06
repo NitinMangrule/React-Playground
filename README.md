@@ -7,5 +7,7 @@ commands
 
 #To start server
 > npx parcel index.html
-# For build > npx parcel build index.html 
-index.html is entry point for build
+# For build  (index.html is entry point for build)
+> npx parcel build index.html
+
+
