@@ -5,6 +5,7 @@ const heading = React.createElement(
     "h1",
     {
       id: "title",
+      key: "h1",
       style: {color:'red',
             backgroundColor: '#eeee'    
             }
@@ -15,6 +16,7 @@ const heading = React.createElement(
     "h2",
     {
       id: "title",
+      key: "h2",
       style: {color:'skyblue',
             backgroundColor: '#eeee'    
             }
