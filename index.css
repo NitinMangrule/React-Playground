@@ -51,7 +51,7 @@
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 200px;
-  margin: 5px auto;
+  margin: 5px;
   text-align: center;
   font-family: Arial, sans-serif;
   padding: 10px;
@@ -90,4 +90,9 @@
 .restaurant-list {
     display: flex;
     flex-wrap: wrap;
+}
+
+.logo-img{
+  width: 90px;
+  height: 70px;
 }
