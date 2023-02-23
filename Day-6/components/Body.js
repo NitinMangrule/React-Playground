@@ -1,26 +1,40 @@
 import Card from "./Card";
-import { restaurantList } from "../constants";
 import { useState, useEffect } from "react";
+import Shimmer  from './Shimmer';
+// Conditional Rendering
+// if restaurant data is empty => load shimmer UI
+// if restaurant data is not empty => load actual UI
 
-function filterData(searchText) {
-  if (searchText) {
-    return restaurantList.filter((restaurant) => {
-      return restaurant.data.name.includes(searchText);
-    });
-  } else {
-    return restaurantList;
+function filterData(searchText, allRestaurantsList) {
+  if(searchText){
+    const filteredData = allRestaurantsList.filter((restaurant) => restaurant?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase()));
+    console.log('1', searchText, allRestaurantsList, filteredData);
+    return filteredData;
   }
+  return allRestaurantsList;
 }
 
 const Body = () => {
   const [searchText, setSearchText] = useState(""); // returns array [variable name , function to update variable]
-  const [restaurants, setRestaurantList] = useState(restaurantList);
+  const [filteredRestaurants, setFilteredRestaurantList] = useState([]);
+  const [allRestaurants, setAllRestaurantList] = useState([]);
 
   useEffect(() => {
       console.log('render');
+      getRestaurantList();
   }, []);
 
-  return (
+
+  async function getRestaurantList(){
+    const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5236317&lng=73.8411226&page_type=DESKTOP_WEB_LISTING');
+    const json = await data.json();
+    console.log('json',json);
+    setAllRestaurantList(json?.data?.cards[2]?.data?.data?.cards);
+    setFilteredRestaurantList(json?.data?.cards[2]?.data?.data?.cards);
+    console.log(filteredRestaurants, allRestaurants);
+  }
+
+  return (filteredRestaurants.length === 0)  ? <Shimmer/> :  (
     <>
       <div className="search-container">
         <input
@@ -33,14 +47,15 @@ const Body = () => {
         <button
           className="search-btn"
           onClick={() => {
-            setRestaurantList(filterData(searchText));
+            setFilteredRestaurantList(filterData(searchText, allRestaurants));
+            console.log('data',filteredRestaurants);
           }}
         >
           Search
         </button>
       </div>
       <div className="restaurant-list">
-        {restaurants.map((restaurant) => {
+        {filteredRestaurants?.map((restaurant) => {
           return <Card key={restaurant.data.id} {...restaurant.data} />;
         })}
       </div>

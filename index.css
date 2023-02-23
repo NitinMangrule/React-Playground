@@ -58,11 +58,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 
 .title {
   color: grey;
   font-size: 24px;
+  word-wrap: break-word;
 }
 
 .card > img {
@@ -95,4 +97,43 @@
 .logo-img{
   width: 90px;
   height: 70px;
+}
+
+
+.shimmerBG {
+  animation-duration: 2.2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+  background: #ddd;
+  background: linear-gradient(to right, #f6f6f6 8%, #f0f0f0 18%, #f6f6f6 33%);
+  background-size: 1200px 100%;
+}
+
+@-webkit-keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1200px 0;
+  }
+  100% {
+    background-position: 1200px 0;
+  }
+}
+
+.no-img {
+
+  height: 200px;
+  max-width: 180px;
+  padding: 10px;
+  background-color: lightgray;
+  animation-name: shimmer;
 }
