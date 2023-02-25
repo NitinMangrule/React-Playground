@@ -1,6 +1,12 @@
 import Title from "./Title";
+import { useState } from "react";
 
+const loggedInUser = () => {
+  // API call for authentication.
+  return true;
+} 
 const Header = () => {
+  const [isLoggedIn, setLoggedIn] = useState(false);
     return (
       <header className="header">
         <div className="header-container">
@@ -20,8 +26,12 @@ const Header = () => {
             </a>
           </nav>
         </div>
-        <button className="button-62">Login</button>
-        <button className="button-62">Log Out</button>
+        {isLoggedIn ?  <button className="button-62" onClick={()=>{
+          setLoggedIn(false)
+        }}>Log Out</button> :  <button className="button-62" onClick={()=>{
+          setLoggedIn(true)
+        }}>Log In</button> }
+       
       </header>
     );
   };
