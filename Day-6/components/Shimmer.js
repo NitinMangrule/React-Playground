@@ -9,6 +9,24 @@ const Shimmer = () => {
             <Card className="shimmerBG"></Card>
             <Card className="shimmerBG"></Card>
             <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
+            <Card className="shimmerBG"></Card>
        </div>
        
     )

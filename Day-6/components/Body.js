@@ -34,7 +34,9 @@ const Body = () => {
     console.log(filteredRestaurants, allRestaurants);
   }
 
-  return (filteredRestaurants.length === 0)  ? <Shimmer/> :  (
+  if(!allRestaurants) return null
+
+  return (allRestaurants.length === 0)  ? <Shimmer/> :  (
     <>
       <div className="search-container">
         <input
@@ -45,7 +47,7 @@ const Body = () => {
           onChange={(e) => setSearchText(e.target.value)}
         />
         <button
-          className="search-btn"
+          className="search-btn button-62"
           onClick={() => {
             setFilteredRestaurantList(filterData(searchText, allRestaurants));
             console.log('data',filteredRestaurants);
@@ -55,9 +57,9 @@ const Body = () => {
         </button>
       </div>
       <div className="restaurant-list">
-        {filteredRestaurants?.map((restaurant) => {
+        {filteredRestaurants?.length ? filteredRestaurants?.map((restaurant) => {
           return <Card key={restaurant.data.id} {...restaurant.data} />;
-        })}
+        }) : <h1>No restaurant found with given search input..</h1>}
       </div>
     </>
   );

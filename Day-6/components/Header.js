@@ -12,7 +12,7 @@ const Header = () => {
             <a className="header-nav-link" href="#">
               Menu
             </a>
-            <a className="header-nav-link" href="#">
+            <a className="header-nav-link " href="#">
               About
             </a>
             <a className="header-nav-link" href="#">
@@ -20,6 +20,8 @@ const Header = () => {
             </a>
           </nav>
         </div>
+        <button className="button-62">Login</button>
+        <button className="button-62">Log Out</button>
       </header>
     );
   };
