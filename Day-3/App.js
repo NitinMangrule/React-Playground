@@ -18,7 +18,6 @@ const HeaderComponent = () => {
      {heading}
      <SubHeading/>
     { test + 122}
-    {console.log('test', test)}
     { console.log('We can write anything JS here..')}
     </div>
   );
