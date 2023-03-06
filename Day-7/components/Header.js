@@ -1,6 +1,6 @@
 import Title from "./Title";
 import { useState } from "react";
-
+import {Link} from 'react-router-dom';
 const loggedInUser = () => {
   // API call for authentication.
   return true;
@@ -12,18 +12,18 @@ const Header = () => {
         <div className="header-container">
           <Title/>
           <nav className="header-nav">
-            <a className="header-nav-link" href="#">
+            <Link className="header-nav-link" to="/">
               Home
-            </a>
-            <a className="header-nav-link" href="#">
+            </Link>
+            <Link className="header-nav-link" href="/menu">
               Menu
-            </a>
-            <a className="header-nav-link " href="#">
+            </Link>
+            <Link className="header-nav-link " to='/about'>
               About
-            </a>
-            <a className="header-nav-link" href="#">
+            </Link>
+            <Link className="header-nav-link" href="/contact">
               Contact
-            </a>
+            </Link>
           </nav>
         </div>
         {isLoggedIn ?  <button className="button-62" onClick={()=>{
