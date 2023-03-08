@@ -1,6 +1,7 @@
 import Card from "./Card";
 import { useState, useEffect } from "react";
 import Shimmer  from './Shimmer';
+import {Link} from 'react-router-dom';
 // Conditional Rendering
 // if restaurant data is empty => load shimmer UI
 // if restaurant data is not empty => load actual UI
@@ -53,7 +54,7 @@ const Body = () => {
       </div>
       <div className="restaurant-list">
         {filteredRestaurants?.length ? filteredRestaurants?.map((restaurant) => {
-          return <Card key={restaurant.data.id} {...restaurant.data} />;
+          return <Link to={'/restaurant/'+restaurant.data.id} style={{ textDecoration: 'none' }}><Card key={restaurant.data.id} {...restaurant.data} /></Link>;
         }) : <h1>No restaurant found.</h1>}
       </div>
     </>
