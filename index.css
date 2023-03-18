@@ -90,6 +90,11 @@
   flex-direction: column;
   justify-content: space-between;
   position: relative;
+  min-height: 400px;
+}
+.card h4 {
+  color: black;
+  text-decoration: none;
 }
 
 .title {
