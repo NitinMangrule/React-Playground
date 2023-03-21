@@ -20,19 +20,22 @@ class About extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            state1: 123
         }
+        console.log('Parent - constructor ');
     }
     render(){
+        console.log('Parent - render ');
         return <div>
         <h1>About Us Page</h1>
-        <p> {" "}
-            This is Namaste React..</p>
         {/* <Outlet></Outlet> */}
 
-        <ProfileClass name='Nitin'/>
-        <ProfileName name='Mangrule'/>
+        <ProfileClass/>
+        {/* <ProfileName name='Mangrule'/> */}
     </div>
+    }
+
+    async componentDidMount(){
+        console.log('Parent - componentDidCatch');
     }
 }
 export default About;
